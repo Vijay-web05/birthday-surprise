@@ -551,9 +551,10 @@ async function startHeartSequence() {
         typewriter.style.transition = 'opacity 1s ease';
         typewriter.style.opacity = '0';
         
-        // Wait for fade then REMOVE FROM FLOW
+        // Use visibility: hidden to preserve space and prevent "jumping"
         setTimeout(() => {
-            typewriter.style.display = 'none';
+            typewriter.style.visibility = 'hidden';
+            typewriter.style.pointerEvents = 'none';
         }, 1000);
     }
 

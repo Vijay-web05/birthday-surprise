@@ -7,7 +7,7 @@
     <title>For You 💕</title>
     <!-- Cute Rounded Font -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2.2">
+    <link rel="stylesheet" href="style.css?v=2.3">
 </head>
 
 <body>
@@ -20,13 +20,19 @@
             <h1 class="main-title">Your Special Day is Almost Here 💕</h1>
 
             <div id="timer-container" class="timer">
-                <div class="time-box"><span id="days" class="number">0</span><span class="label">Days</span><span class="icon">🩷</span></div>
-                <div class="time-box"><span id="hours" class="number">0</span><span class="label">Hours</span><span class="icon">🎁</span></div>
-                <div class="time-box"><span id="minutes" class="number">0</span><span class="label">Minutes</span><span class="icon">🎂</span></div>
-                <div class="time-box"><span id="seconds" class="number">0</span><span class="label">Seconds</span><span class="icon">⭐</span></div>
+                <div class="time-box"><span id="days" class="number">0</span><span class="label">Days</span><span
+                        class="icon">🩷</span></div>
+                <div class="time-box"><span id="hours" class="number">0</span><span class="label">Hours</span><span
+                        class="icon">🎁</span></div>
+                <div class="time-box"><span id="minutes" class="number">0</span><span class="label">Minutes</span><span
+                        class="icon">🎂</span></div>
+                <div class="time-box"><span id="seconds" class="number">0</span><span class="label">Seconds</span><span
+                        class="icon">⭐</span></div>
             </div>
 
-            <div id="its-time-msg" class="hidden"><h2 class="its-time">It's time!</h2></div>
+            <div id="its-time-msg" class="hidden">
+                <h2 class="its-time">It's time!</h2>
+            </div>
 
             <div id="excited-section" class="excited-section">
                 <h3 class="excited-title">Are you excited? 🤭</h3>
@@ -73,12 +79,15 @@
                 <div class="memory-card-header"><span>A moment I never forgot 💭</span></div>
                 <div class="memory-card-body">
                     <p class="memory-text">
-                        Prakash classes me 7 bhej ka lecture tha aur me phele se vahaa tha, aur tum aaye the koi nhi tha tum tabhi baat kiye, fir me bhar gaya, fir aaya aur tum ko 5 star diya 😅 aur tum le liye aur haa thank you bhi bole dil se, best smile 🤌🥹Rowdy girl the golu 🤌
+                        Prakash classes me 7 bhej ka lecture tha aur me phele se vahaa tha, aur tum aaye the koi nhi tha
+                        tum tabhi baat kiye, fir me bhar gaya, fir aaya aur tum ko 5 star diya 😅 aur tum le liye aur
+                        haa thank you bhi bole dil se, best smile 🤌🥹Rowdy girl the golu 🤌
                     </p>
                 </div>
                 <div class="memory-card-footer"><span class="memory-caption">Golu 🤌</span></div>
             </div>
-            <button id="memory-continue-btn" class="memory-continue-btn hidden" onclick="handleMemoryContinue()">haa yaad hai mera ko… 😌💖</button>
+            <button id="memory-continue-btn" class="memory-continue-btn hidden" onclick="handleMemoryContinue()">haa
+                yaad hai mera ko… 😌💖</button>
         </section>
 
         <!-- View 4: Memory Gallery Stage -->
@@ -88,20 +97,23 @@
                 <p id="gal-line2" class="t-line"></p>
                 <p id="gal-line3" class="t-line"></p>
             </div>
-            
+
             <!-- REVISED GALLERY: Single Horizontal Row, Normal Style -->
             <div id="gallery-container" class="gallery-container hidden">
                 <div class="gallery-item" id="gal-item-1">
-                    <img src="5.jpg" alt="Memory 1" onerror="this.src='https://via.placeholder.com/300x400/121212/ffffff?text=Moment+1'">
+                    <img src="5.jpg" alt="Memory 1"
+                        onerror="this.src='https://via.placeholder.com/300x400/121212/ffffff?text=Moment+1'">
                     <div class="gallery-caption">February-3-2023 💖</div>
                 </div>
                 <div class="gallery-item" id="gal-item-2">
-                    <img src="6.jpg" alt="Memory 2" onerror="this.src='https://via.placeholder.com/300x400/121212/ffffff?text=Moment+2'">
+                    <img src="6.jpg" alt="Memory 2"
+                        onerror="this.src='https://via.placeholder.com/300x400/121212/ffffff?text=Moment+2'">
                     <div class="gallery-caption">February-4-2023 🥹</div>
                 </div>
             </div>
-            
-            <button id="gallery-continue-btn" class="gallery-continue-btn hidden" onclick="handleGalleryContinue()">haa yaad hai...💞</button>
+
+            <button id="gallery-continue-btn" class="gallery-continue-btn hidden" onclick="handleGalleryContinue()">haa
+                yaad hai...💞</button>
         </section>
 
         <!-- View 5: Climax Reveal Stage -->
@@ -113,7 +125,8 @@
             <div id="climax-content" class="climax-content hidden">
                 <div class="climax-header">IT’S YOUR DAY 🎂</div>
                 <h1 class="climax-main-text">Happy Birthday <span class="her-name-text">Golu</span> 💖</h1>
-                <button id="climax-continue-btn" class="climax-continue-btn hidden" onclick="handleClimaxContinue()">Wait… there’s more 💌</button>
+                <button id="climax-continue-btn" class="climax-continue-btn hidden"
+                    onclick="handleClimaxContinue()">Wait… there’s more 💌</button>
             </div>
         </section>
 
@@ -132,58 +145,96 @@
             <div id="message-card" class="message-card hidden">
                 <div class="message-card-body">
                     <p class="personal-message" id="personal-message-text">
-                        I just wanted to take a moment to tell you how much you truly mean to me. You're the kind of person who makes everything better just by being there. Your smile, your laugh, the way you care... it all stays with me. Thank you for being my constant, my favorite person, and my greatest luck. 💖
+                        I just wanted to take a moment to tell you how much you truly mean to me. You're the kind of
+                        person who makes everything better just by being there. Your smile, your laugh, the way you
+                        care... it all stays with me. Thank you for being my constant, my favorite person, and my
+                        greatest luck. 💖 kaisa hai English 😅
                     </p>
                 </div>
             </div>
 
-            <button id="heart-continue-btn" class="heart-continue-btn hidden" onclick="handleHeartContinue()">This is not all… 💖</button>
+            <button id="heart-continue-btn" class="heart-continue-btn hidden" onclick="handleHeartContinue()">This is
+                not all… 💖</button>
         </section>
 
         <!-- View 7: Her World Stage -->
         <section id="her-world-view" class="view hidden her-world-view">
             <h2 class="world-title">This world… today… is all about you 💖</h2>
             <div class="photo-grid" id="photo-grid">
-                <div class="photo-item" id="photo-1"><img src="her1.jpg" alt="Her 1" onerror="this.src='https://via.placeholder.com/300x400/fce4ec/d81b60?text=You ✨'"><span class="photo-tag tag-top">Your smile ✨</span></div>
-                <div class="photo-item" id="photo-2"><img src="her2.jpg" alt="Her 2" onerror="this.src='https://via.placeholder.com/400x300/f3e5f5/8e24aa?text=Your+Vibe'"><span class="photo-tag tag-bottom">Your vibe 💫</span></div>
-                <div class="photo-item" id="photo-3"><img src="her3.jpg" alt="Her 3" onerror="this.src='https://via.placeholder.com/350x350/e1f5fe/0288d1?text=Just+You'"><span class="photo-tag tag-top">Just you 💖</span></div>
-                <div class="photo-item" id="photo-4"><img src="her4.jpg" alt="Her 4" onerror="this.src='https://via.placeholder.com/300x450/fff9c4/fbc02d?text=Beauty'"><span class="photo-tag tag-bottom">Always 🌸</span></div>
+                <div class="photo-item" id="photo-1"><img src="her1.jpg" alt="Her 1"
+                        onerror="this.src='https://via.placeholder.com/300x400/fce4ec/d81b60?text=You ✨'"><span
+                        class="photo-tag tag-top">Your smile ✨</span></div>
+                <div class="photo-item" id="photo-2"><img src="her2.jpg" alt="Her 2"
+                        onerror="this.src='https://via.placeholder.com/400x300/f3e5f5/8e24aa?text=Your+Vibe'"><span
+                        class="photo-tag tag-bottom">Your vibe 💫</span></div>
+                <div class="photo-item" id="photo-3"><img src="her3.jpg" alt="Her 3"
+                        onerror="this.src='https://via.placeholder.com/350x350/e1f5fe/0288d1?text=Just+You'"><span
+                        class="photo-tag tag-top">Just you 💖</span></div>
+                <div class="photo-item" id="photo-4"><img src="her4.jpg" alt="Her 4"
+                        onerror="this.src='https://via.placeholder.com/300x450/fff9c4/fbc02d?text=Beauty'"><span
+                        class="photo-tag tag-bottom">Always 🌸</span></div>
             </div>
             <div class="interests-section" id="interests-section">
-                <div class="interest-card">🎧 Music lover</div>
-                <div class="interest-card">☕ Coffee addict</div>
-                <div class="interest-card">🌙 Night person</div>
+                <div class="interest-card">☕ Chai addict</div>
+                <div class="interest-card">🌙 Sleepy person</div>
             </div>
-            <button id="world-continue-btn" class="world-continue-btn hidden" onclick="handleWorldContinue()">There’s something I never told you… 💌</button>
+            <button id="world-continue-btn" class="world-continue-btn hidden" onclick="handleWorldContinue()">There’s
+                something I never told you… 💌</button>
         </section>
 
         <section id="surprise-view" class="view hidden surprise-view">
-            <div id="surprise-typewriter" class="surprise-typewriter"><p id="surp-line1" class="t-line"></p><p id="surp-line2" class="t-line"></p><p id="surp-line3" class="t-line"></p></div>
+            <div id="surprise-typewriter" class="surprise-typewriter">
+                <p id="surp-line1" class="t-line"></p>
+                <p id="surp-line2" class="t-line"></p>
+                <p id="surp-line3" class="t-line"></p>
+            </div>
             <div id="surprise-main-content" class="surprise-main-content hidden">
                 <p class="surprise-pre">And yes… I still remember when you said…</p>
-                <div class="surprise-joke-box"><span class="joke-text">"I hate surprises… but I secretly love them 😄"</span></div>
+                <div class="surprise-joke-box"><span class="joke-text">"I hate surprises… but I secretly love them
+                        😄"</span></div>
                 <p id="surprise-reaction" class="surprise-reaction">I didn’t forget that… 💖</p>
             </div>
-            <button id="surprise-continue-btn" class="surprise-continue-btn hidden" onclick="handleSurpriseContinue()">Okay… one last thing 🎧</button>
+            <button id="surprise-continue-btn" class="surprise-continue-btn hidden"
+                onclick="handleSurpriseContinue()">Okay… one last thing 🎧</button>
         </section>
 
         <section id="voice-view" class="view hidden voice-view">
             <h2 class="voice-title">Click to hear something… 🎧</h2>
             <div class="voice-player-container">
-                <button id="voice-play-btn" class="voice-play-btn" onclick="toggleVoicePlayback()"><span id="play-icon">▶️</span></button>
-                <div id="waveform" class="waveform"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+                <button id="voice-play-btn" class="voice-play-btn" onclick="toggleVoicePlayback()"><span
+                        id="play-icon">▶️</span></button>
+                <div id="waveform" class="waveform">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
             </div>
             <p id="voice-subtext" class="voice-subtext">Listen carefully… 💖</p>
-            <button id="voice-continue-btn" class="voice-continue-btn hidden" onclick="handleVoiceContinue()">Now… make a wish 🎂</button>
+            <button id="voice-continue-btn" class="voice-continue-btn hidden" onclick="handleVoiceContinue()">Now… make
+                a wish 🎂</button>
         </section>
 
         <section id="wish-view" class="view hidden wish-view">
-            <div id="wish-text-container" class="wish-text-container"><p id="wish-line1" class="t-line"></p><p id="wish-line2" class="t-line"></p></div>
+            <div id="wish-text-container" class="wish-text-container">
+                <p id="wish-line1" class="t-line"></p>
+                <p id="wish-line2" class="t-line"></p>
+            </div>
             <div class="candle-container" id="candle-container" onclick="blowCandle()">
-                <div class="candle"><div class="flame" id="candle-flame"></div></div>
+                <div class="candle">
+                    <div class="flame" id="candle-flame"></div>
+                </div>
                 <p id="blow-instruction" class="blow-instruction">Tap to blow the candle…</p>
             </div>
-            <div id="final-message" class="final-message hidden"><h2>Once again… Happy Birthday ❤️</h2></div>
+            <div id="final-message" class="final-message hidden">
+                <h2>Once again… Happy Birthday ❤️</h2>
+            </div>
         </section>
 
         <section id="card-view" class="view hidden">
@@ -191,11 +242,19 @@
             <div class="bday-icons">🎂 ✨ 🤍</div>
             <h2 class="subtitle-pink">To My Cutiepie</h2>
             <div class="card-container" onclick="openCard()">
-                <div class="card-cover" id="card-cover"><p class="tap-text">Tap to open your card</p><div class="gift-icon-large">🎁</div></div>
-                <div class="card-inner" id="card-inner"><p>Just wanted to remind you—you're my favorite person. My days are better, smiles are wider, and life is sweeter because of you.</p><br><p>I hope your birthday is full of love, magic, and everything that makes you smile ❤️</p></div>
+                <div class="card-cover" id="card-cover">
+                    <p class="tap-text">Tap to open your card</p>
+                    <div class="gift-icon-large">🎁</div>
+                </div>
+                <div class="card-inner" id="card-inner">
+                    <p>Just wanted to remind you—you're my favorite person. My days are better, smiles are wider, and
+                        life is sweeter because of you.</p><br>
+                    <p>I hope your birthday is full of love, magic, and everything that makes you smile ❤️</p>
+                </div>
             </div>
             <div class="bottom-message">
-                <p>May every wish you make today come true. You deserve the world, and I'll always be here to remind you of that.</p>
+                <p>May every wish you make today come true. You deserve the world, and I'll always be here to remind you
+                    of that.</p>
                 <p class="small-text">Let's always stay like this... together, forever 🫶</p>
             </div>
         </section>
@@ -212,14 +271,27 @@
     <div id="white-flash" class="white-flash"></div>
     <img src="4.gif" id="slide-meme" class="slide-meme" alt="No meme">
 
-    <audio id="suspense-music" loop><source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg"></audio>
-    <audio id="climax-music" loop><source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg"></audio>
-    <audio id="heart-audio" loop><source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg"></audio>
-    <audio id="world-audio" loop><source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg"></audio>
-    <audio id="voice-note" preload="auto"><source src="voice-note.mp3" type="audio/mpeg"></audio>
-    <audio id="wish-audio" loop><source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg"></audio>
+    <audio id="suspense-music" loop>
+        <source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="climax-music" loop>
+        <source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="heart-audio" loop>
+        <source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="world-audio" loop>
+        <source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="voice-note" preload="auto">
+        <source src="voice-note.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="wish-audio" loop>
+        <source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg">
+    </audio>
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script src="script.js?v=2.2"></script>
+    <script src="script.js?v=2.3"></script>
 </body>
+
 </html>
