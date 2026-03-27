@@ -7,7 +7,7 @@
     <title>For You 💕</title>
     <!-- Cute Rounded Font -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2.4">
+    <link rel="stylesheet" href="style.css?v=4.5">
 </head>
 
 <body>
@@ -161,12 +161,21 @@
         <section id="her-world-view" class="view hidden her-world-view">
             <h2 class="world-title">This world… today… is all about you 💖</h2>
             <div class="photo-grid" id="photo-grid">
-                <div class="photo-item" id="photo-1"><img src="7.jpg" alt="Your Smile" onerror="this.src='https://via.placeholder.com/300x450/fce4ec/d81b60?text=Smile'"><span class="photo-tag tag-top">Your smile ✨</span></div>
-                <div class="photo-item" id="photo-2"><img src="8.jpg" alt="Your Vibe" onerror="this.src='https://via.placeholder.com/300x450/f3e5f5/7b1fa2?text=Vibe'"><span class="photo-tag tag-bottom">Your vibe 💖</span></div>
-                <div class="photo-item" id="photo-3"><img src="9.jpg" alt="Just You" onerror="this.src='https://via.placeholder.com/300x450/e1bee7/8e24aa?text=Magic'"><span class="photo-tag tag-top">Just you ✨</span></div>
-                <div class="photo-item" id="photo-4"><img src="10.jpg" alt="Always" onerror="this.src='https://via.placeholder.com/300x450/fff9c4/fbc02d?text=Beauty'"><span class="photo-tag tag-bottom">Always 🌸</span></div>
+                <div class="photo-item" id="photo-1"><img src="7.jpg" alt="Your Smile"
+                        onerror="this.src='https://via.placeholder.com/300x450/fce4ec/d81b60?text=Smile'"><span
+                        class="photo-tag tag-top">Your smile ✨</span></div>
+                <div class="photo-item" id="photo-2"><img src="8.jpg" alt="Your Vibe"
+                        onerror="this.src='https://via.placeholder.com/300x450/f3e5f5/7b1fa2?text=Vibe'"><span
+                        class="photo-tag tag-bottom">Your vibe 💖</span></div>
+                <div class="photo-item" id="photo-3"><img src="9.jpg" alt="Just You"
+                        onerror="this.src='https://via.placeholder.com/300x450/e1bee7/8e24aa?text=Magic'"><span
+                        class="photo-tag tag-top">Just you ✨</span></div>
+                <div class="photo-item" id="photo-4"><img src="10.jpg" alt="Always"
+                        onerror="this.src='https://via.placeholder.com/300x450/fff9c4/fbc02d?text=Beauty'"><span
+                        class="photo-tag tag-bottom">Always 🌸</span></div>
             </div>
             <div class="interests-section" id="interests-section">
+                <div class="interest-card">🤌Golu Molu</div>
                 <div class="interest-card">☕ Chai addict</div>
                 <div class="interest-card">🌙 Sleepy person</div>
             </div>
@@ -182,8 +191,7 @@
             </div>
             <div id="surprise-main-content" class="surprise-main-content hidden">
                 <p class="surprise-pre">And yes… I still remember when you said…</p>
-                <div class="surprise-joke-box"><span class="joke-text">"I hate surprises… but I secretly love them
-                        😄"</span></div>
+                <div class="surprise-joke-box"><span class="joke-text">"I LOVE YOU☺️"</span></div>
                 <p id="surprise-reaction" class="surprise-reaction">I didn’t forget that… 💖</p>
             </div>
             <button id="surprise-continue-btn" class="surprise-continue-btn hidden"
@@ -209,8 +217,12 @@
                 </div>
             </div>
             <p id="voice-subtext" class="voice-subtext">Listen carefully… 💖</p>
-            <button id="voice-continue-btn" class="voice-continue-btn hidden" onclick="handleVoiceContinue()">Now… make
-                a wish 🎂</button>
+            <div id="voice-btn-container" class="voice-btn-container">
+                <button id="voice-continue-btn" class="voice-continue-btn hidden" onclick="handleVoiceContinue()">Now…
+                    make a wish 🎂</button>
+                <button id="voice-skip-btn" class="voice-skip-btn" onclick="handleVoiceContinue()">Skip for now
+                    🍰</button>
+            </div>
         </section>
 
         <section id="wish-view" class="view hidden wish-view">
@@ -225,7 +237,7 @@
                 <p id="blow-instruction" class="blow-instruction">Tap to blow the candle…</p>
             </div>
             <div id="final-message" class="final-message hidden">
-                <h2>Once again… Happy Birthday ❤️</h2>
+                <h2>Once again… Happy Birthday My Golu Molu🤌 MY Cutie Pie😘💞</h2>
             </div>
         </section>
 
@@ -248,6 +260,60 @@
                 <p>May every wish you make today come true. You deserve the world, and I'll always be here to remind you
                     of that.</p>
                 <p class="small-text">Let's always stay like this... together, forever 🫶</p>
+                <button id="start-love-test-btn" class="love-test-start-btn" onclick="startLoveTest()">NEXT: THE LOVE
+                    TEST 👄</button>
+            </div>
+        </section>
+
+        <!-- View 12: Love Test Quiz Stage -->
+        <section id="quiz-view" class="view hidden quiz-view">
+            <div id="quiz-card" class="quiz-card">
+                <h2 id="quiz-question" class="quiz-question">Quiz #1: Question Text</h2>
+                <div id="quiz-options" class="quiz-options">
+                    <!-- Dynamic Options -->
+                </div>
+            </div>
+        </section>
+
+        <!-- View 13: Final Proposal Stage -->
+        <section id="proposal-view" class="view hidden proposal-view">
+            <h2 id="proposal-title" class="proposal-title">Will you be my girl for the next 100 years? 💍</h2>
+            <div class="proposal-gif-container">
+                <img src="11.gif" alt="Together" class="proposal-gif" onerror="this.src='4.gif'">
+            </div>
+            <div class="proposal-actions">
+                <button id="yes-btn" class="yes-btn" onclick="proposalSuccess()">YES! 😍</button>
+                <button id="no-btn" class="no-btn" onmouseover="dodgeNo()" ontouchstart="dodgeNo()">NO 😥</button>
+            </div>
+        </section>
+
+        <!-- View 14: Rating View Stage -->
+        <section id="rating-view" class="view hidden rating-view">
+            <h1 class="party-title">It's Party Time!</h1>
+            <div class="party-gif-container">
+                <img src="12.gif" alt="Party" class="party-gif">
+            </div>
+
+            <div id="rating-container" class="rating-container">
+                <h3>How was the surprise? Rate me 1 to 10</h3>
+                <div class="rating-scale">
+                    <button class="rate-btn" onclick="selectRating(1)">1</button>
+                    <button class="rate-btn" onclick="selectRating(2)">2</button>
+                    <button class="rate-btn" onclick="selectRating(3)">3</button>
+                    <button class="rate-btn" onclick="selectRating(4)">4</button>
+                    <button class="rate-btn" onclick="selectRating(5)">5</button>
+                    <button class="rate-btn" onclick="selectRating(6)">6</button>
+                    <button class="rate-btn" onclick="selectRating(7)">7</button>
+                    <button class="rate-btn" onclick="selectRating(8)">8</button>
+                    <button class="rate-btn" onclick="selectRating(9)">9</button>
+                    <button class="rate-btn" onclick="selectRating(10)">10</button>
+                </div>
+                <button id="finish-btn" class="finish-btn hidden" onclick="finishExperience()">Finish / Done ✅</button>
+            </div>
+
+            <div id="final-rating-msg" class="final-rating-msg hidden">
+                <h2>Thank you for the <span id="user-rating">10</span>/10! ❤️</h2>
+                <p>I'm so glad you liked it. Love you always! 🫶🌸✨</p>
             </div>
         </section>
 
@@ -263,27 +329,18 @@
     <div id="white-flash" class="white-flash"></div>
     <img src="4.gif" id="slide-meme" class="slide-meme" alt="No meme">
 
-    <audio id="suspense-music" loop>
-        <source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="climax-music" loop>
-        <source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="heart-audio" loop>
-        <source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="world-audio" loop>
-        <source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="voice-note" preload="auto">
-        <source src="voice-note.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="wish-audio" loop>
+    <!-- Background Music (Single continuous track) -->
+    <audio id="bg-music" loop>
         <source src="Dil Ko Karaar Aaya(Full song) cover by Ayush Panda.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- Voice Note (Real personal recording) -->
+    <audio id="voice-note" preload="auto">
+        <source src="13.ogg" type="audio/ogg">
+    </audio>
+
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script src="script.js?v=2.4"></script>
+    <script src="script.js?v=4.0"></script>
 </body>
 
 </html>

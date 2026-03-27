@@ -21,8 +21,8 @@ function createBgShapes() {
 createBgShapes();
 
 // To test the timer immediately, change targetDateStr to a number (e.g., 5 for 5 seconds).
-// const targetDateStr = 5; // Test Mode (seconds)
-const targetDateStr = "March 28, 2026 00:00:00"; // Production Date
+const targetDateStr = 5; // Test Mode (seconds)
+// const targetDateStr = "March 28, 2026 00:00:00"; // Production Date
 
 let countdownDate;
 if (typeof targetDateStr === "number") {
@@ -193,7 +193,7 @@ function goToSuspenseView() {
         suspenseView.classList.add('active');
 
         // Start Music (Volume low)
-        const music = document.getElementById('suspense-music');
+        const music = document.getElementById('bg-music');
         music.volume = 0.2;
         music.play().catch(() => {
             console.log("Auto-play blocked, will try again on interaction.");
@@ -431,13 +431,8 @@ async function startClimaxSequence() {
         const climaxView = document.getElementById('climax-view');
         climaxView.classList.add('bright');
 
-        // Switch Music
-        const oldMusic = document.getElementById('suspense-music');
-        const newMusic = document.getElementById('climax-music');
-
-        oldMusic.pause();
-        newMusic.volume = 0.3;
-        newMusic.play().catch(e => console.log("Climax music play failed", e));
+        const bgMusic = document.getElementById('bg-music');
+        if (bgMusic) bgMusic.volume = 0.4; // Slightly louder birthday moment
 
         // Hide pre-reveal text
         document.getElementById('climax-pre-reveal').classList.add('hidden');
@@ -505,13 +500,9 @@ function handleClimaxContinue() {
         // Start heart sequence
         startHeartSequence();
 
-        // Switch Music to calm
-        const climaxMusic = document.getElementById('climax-music');
-        const heartMusic = document.getElementById('heart-audio');
-
-        climaxMusic.pause();
-        heartMusic.volume = 0.2;
-        heartMusic.play().catch(e => console.log("Heart music play failed", e));
+        // Background music stays playing, maybe adjust volume
+        const bgMusic = document.getElementById('bg-music');
+        if (bgMusic) bgMusic.volume = 0.2; // Softer for emotional heart stage
 
     }, 1500);
 }
@@ -548,14 +539,9 @@ async function startHeartSequence() {
     // DEFINITIVE HIDE Typewriter Lines
     const typewriter = document.getElementById('heart-typewriter');
     if (typewriter) {
-        typewriter.style.transition = 'opacity 1s ease';
-        typewriter.style.opacity = '0';
-        
-        // Use visibility: hidden to preserve space and prevent "jumping"
-        setTimeout(() => {
-            typewriter.style.visibility = 'hidden';
-            typewriter.style.pointerEvents = 'none';
-        }, 1000);
+        // Keep typewriter visible as requested
+        typewriter.style.opacity = '1';
+        typewriter.style.visibility = 'visible';
     }
 
     setTimeout(() => {
@@ -608,13 +594,9 @@ function handleHeartContinue() {
         worldView.classList.remove('hidden');
         worldView.classList.add('active');
 
-        // Switch Music to uplifting
-        const heartMusic = document.getElementById('heart-audio');
-        const worldMusic = document.getElementById('world-audio');
-
-        heartMusic.pause();
-        worldMusic.volume = 0.3;
-        worldMusic.play().catch(e => console.log("World music play failed", e));
+        // Background music stays playing, orienting for her world
+        const bgMusic = document.getElementById('bg-music');
+        if (bgMusic) bgMusic.volume = 0.3;
 
         // Start Her World sequence
         startWorldSequence();
@@ -731,7 +713,7 @@ function toggleVoicePlayback() {
     const btn = document.getElementById('voice-play-btn');
     const icon = document.getElementById('play-icon');
     const waveform = document.getElementById('waveform');
-    const bgMusic = document.getElementById('heart-audio'); // Assuming this is current
+    const bgMusic = document.getElementById('bg-music');
 
     if (audio.paused) {
         audio.play();
@@ -780,15 +762,9 @@ function handleVoiceContinue() {
         // Start Wish sequence
         startWishSequence();
 
-        // Switch to peaceful music
-        const voiceMusic = document.getElementById('voice-note');
-        const wishMusic = document.getElementById('wish-audio');
-
-        voiceMusic.pause();
-        if (wishMusic) {
-            wishMusic.volume = 0.1;
-            wishMusic.play().catch(e => console.log("Wish music play failed", e));
-        }
+        // Background music stays playing, just adjust volume
+        const bgMusic = document.getElementById('bg-music');
+        if (bgMusic) bgMusic.volume = 0.1;
 
     }, 2000);
 }
@@ -807,7 +783,7 @@ function blowCandle() {
     const instruction = document.getElementById('blow-instruction');
     const textContainer = document.getElementById('wish-text-container');
     const finalMsg = document.getElementById('final-message');
-    const bgMusic = document.getElementById('wish-audio');
+    const bgMusic = document.getElementById('bg-music');
 
     // 1. Blow effect
     flame.style.opacity = '0';
@@ -832,10 +808,25 @@ function blowCandle() {
                     bgMusic.pause();
                     clearInterval(fadeInterval);
                 } else {
-                    bgMusic.volume = vol;
+                    bgMusic.volume = Math.max(0, vol);
                 }
             }, 200);
         }
+        // 4. Reveal Final Card Stage
+        setTimeout(() => {
+            const wishView = document.getElementById('wish-view');
+            const cardView = document.getElementById('card-view');
+            
+            wishView.style.opacity = '0';
+            wishView.style.transition = 'opacity 2s ease';
+            
+            setTimeout(() => {
+                wishView.classList.add('hidden');
+                wishView.classList.remove('active');
+                cardView.classList.remove('hidden');
+                setTimeout(() => cardView.classList.add('active'), 50);
+            }, 2000);
+        }, 4000); // Give time to read the Happy Birthday message
     }, 2500);
 }
 
@@ -854,4 +845,166 @@ function openCard() {
         cardInner.classList.add('visible');
         triggerConfetti();
     }
+}
+
+// -------------------
+// LOVE TEST QUIZ LOGIC
+// -------------------
+let currentQuizStep = 0;
+const quizQuestions = [
+    {
+        question: "Quiz #1: Who is the funniest in the relationship? 😊",
+        options: ["Me!", "You (when you aren't hungry) 🍔", "Both of us!"]
+    },
+    {
+        question: "Quiz #2: What is my favorite thing about you? ❤️",
+        options: ["Everything. No exceptions. ✨", "Your laugh", "Your kindness"]
+    },
+    {
+        question: "Quiz #3: What are we having for dinner later? 🍕",
+        options: ["Whatever you want, My Queen 👸", "Salad (LOL as if!)", "I don't know, you choose."]
+    }
+];
+
+function startLoveTest() {
+    const cardView = document.getElementById('card-view');
+    const countdownView = document.getElementById('countdown-view');
+    const quizView = document.getElementById('quiz-view');
+    
+    // Hide both potential previous views
+    cardView.style.opacity = '0';
+    countdownView.style.opacity = '0';
+    
+    setTimeout(() => {
+        cardView.classList.add('hidden');
+        countdownView.classList.add('hidden');
+        countdownView.classList.remove('active');
+        quizView.classList.remove('hidden');
+        setTimeout(() => {
+            quizView.classList.add('active');
+            renderQuiz(0);
+        }, 50);
+    }, 1000);
+}
+
+function renderQuiz(step) {
+    currentQuizStep = step;
+    const questionEl = document.getElementById('quiz-question');
+    const optionsContainer = document.getElementById('quiz-options');
+    
+    if (step < quizQuestions.length) {
+        const data = quizQuestions[step];
+        questionEl.innerText = data.question;
+        optionsContainer.innerHTML = '';
+        
+        data.options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'quiz-opt-btn';
+            btn.innerText = opt;
+            btn.onclick = () => {
+                confetti({
+                    particleCount: 30,
+                    spread: 50,
+                    origin: { y: 0.7 },
+                    colors: ['#ff4081', '#7b1fa2']
+                });
+                renderQuiz(step + 1);
+            };
+            optionsContainer.appendChild(btn);
+        });
+    } else {
+        const quizView = document.getElementById('quiz-view');
+        const proposalView = document.getElementById('proposal-view');
+        
+        quizView.style.opacity = '0';
+        quizView.style.transition = 'opacity 1s ease';
+        
+        setTimeout(() => {
+            quizView.classList.add('hidden');
+            quizView.classList.remove('active');
+            proposalView.classList.remove('hidden');
+            setTimeout(() => proposalView.classList.add('active'), 50);
+        }, 1000);
+    }
+}
+
+function dodgeNo() {
+    const noBtn = document.getElementById('no-btn');
+    if (!noBtn) return;
+    
+    // Calculate safe random coordinates to keep button on screen
+    const maxX = window.innerWidth / 2 - 80;
+    const maxY = window.innerHeight / 2 - 40;
+    
+    const x = (Math.random() - 0.5) * 2 * maxX;
+    const y = (Math.random() - 0.5) * 2 * maxY;
+    
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+function proposalSuccess() {
+    const proposalView = document.getElementById('proposal-view');
+    const ratingView = document.getElementById('rating-view');
+    
+    // Quick Confetti
+    confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+
+    setTimeout(() => {
+        proposalView.style.opacity = '0';
+        proposalView.style.transition = 'opacity 1s ease';
+        
+        setTimeout(() => {
+            proposalView.classList.add('hidden');
+            proposalView.classList.remove('active');
+            ratingView.classList.remove('hidden');
+            setTimeout(() => ratingView.classList.add('active'), 50);
+        }, 1000);
+    }, 1500);
+}
+
+function selectRating(n) {
+    const btns = document.querySelectorAll('.rate-btn');
+    btns.forEach(btn => btn.classList.remove('selected'));
+    
+    const selectedBtn = btns[n-1];
+    selectedBtn.classList.add('selected');
+    
+    document.getElementById('user-rating').innerText = n;
+    document.getElementById('finish-btn').classList.remove('hidden');
+    
+    confetti({
+        particleCount: 40,
+        spread: 60,
+        origin: { y: 0.8 },
+        colors: ['#4caf50', '#81c784']
+    });
+}
+
+function finishExperience() {
+    const container = document.getElementById('rating-container');
+    const finalMsg = document.getElementById('final-rating-msg');
+    
+    container.style.display = 'none';
+    finalMsg.classList.remove('hidden');
+    
+    // Final Grand Confetti
+    const duration = 15 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+        if (timeLeft <= 0) return clearInterval(interval);
+        const particleCount = 50 * (timeLeft / duration);
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+    }, 250);
 }
