@@ -21,8 +21,8 @@ function createBgShapes() {
 createBgShapes();
 
 // To test the timer immediately, change targetDateStr to a number (e.g., 5 for 5 seconds).
-// const targetDateStr = 5; // Test Mode (seconds)
-const targetDateStr = "March 28, 2026 00:00:00"; // Production Date
+const targetDateStr = 5; // Test Mode (seconds)
+// const targetDateStr = "March 28, 2026 00:00:00"; // Production Date
 
 let countdownDate;
 if (typeof targetDateStr === "number") {
